@@ -1,7 +1,7 @@
 # Личный проект «Что посмотреть» [![Build status][travis-image]][travis-url]
 
 * Студент: [Артём Черенков](https://up.htmlacademy.ru/react/6/user/1322377).
-* Наставник: `Неизвестно`.
+* Наставник: [Олег Липский](https://htmlacademy.ru/profile/id43358).
 
 ---
 
