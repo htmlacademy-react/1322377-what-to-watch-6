@@ -9,10 +9,15 @@ module.exports = {
   devServer: {
     contentBase: path.resolve(__dirname, 'public'),
     open: false,
-    port: 1337,
+    port: 3000,
+    historyApiFallback: true,
   },
   module: {
     rules: [
+      {
+        test: /\.css$/i,
+        use: ['style-loader', 'css-loader'],
+      },
       {
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
