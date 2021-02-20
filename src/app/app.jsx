@@ -13,13 +13,27 @@ const App = () => {
   return (
     <BrowserRouter>
       <Switch>
-        <Route exact path="/" component={MainPage} />
-        <Route exact path="/login" component={SignInPage} />
-        <Route exact path="/mylist" component={MyListPage} />
-        <Route exact path="/films/:id" component={FilmPage} />
-        <Route exact path="/films/:id/review" component={AddReviewPage} />
-        <Route exact path="/player/:id" component={PlayerPage} />
-        <Route component={NotFoundPage} />
+        <Route exact path="/">
+          <MainPage />
+        </Route>
+        <Route exact path="/login">
+          <SignInPage />
+        </Route>
+        <Route exact path="/mylist">
+          <MyListPage />
+        </Route>
+        <Route exact path="/films/:id">
+          <FilmPage />
+        </Route>
+        <Route exact path="/films/:id/review">
+          <AddReviewPage />
+        </Route>
+        <Route exact path="/player/:id">
+          <PlayerPage />
+        </Route>
+        <Route>
+          <NotFoundPage />
+        </Route>
       </Switch>
     </BrowserRouter>
   );
