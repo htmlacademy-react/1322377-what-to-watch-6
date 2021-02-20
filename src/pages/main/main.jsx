@@ -7,7 +7,7 @@ import MovieCard from "../../components/movie-card/movie-card";
 import MoviePreview from "../../components/movie-preview/movie-preview";
 import Footer from "../../components/footer/footer";
 
-const Main = () => (
+const MainPage = () => (
   <>
     <MoviePreview />
     <div className="page-content">
@@ -59,4 +59,4 @@ const Main = () => (
   </>
 );
 
-export default Main;
+export default MainPage;
