@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import MoviesList from "../../components/movies-list/movies-list";
 import movieProp from "../../types/movie.prop";
 import Logo from "../../components/logo/logo";
+import Footer from "../../components/footer/footer";
 
 const MyListPage = ({movies}) => (
   <div className="user-page">
@@ -20,18 +21,7 @@ const MyListPage = ({movies}) => (
       <h2 className="catalog__title visually-hidden">Catalog</h2>
       <MoviesList movies={movies} />
     </section>
-    <footer className="page-footer">
-      <div className="logo">
-        <a href="main.html" className="logo__link logo__link--light">
-          <span className="logo__letter logo__letter--1">W</span>
-          <span className="logo__letter logo__letter--2">T</span>
-          <span className="logo__letter logo__letter--3">W</span>
-        </a>
-      </div>
-      <div className="copyright">
-        <p>© 2019 What to watch Ltd.</p>
-      </div>
-    </footer>
+    <Footer />
   </div>
 );
 
