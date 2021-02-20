@@ -90,6 +90,10 @@ const GENRES = [
   `Sci-Fi`,
   `Thriller`,
 ];
+const VIDEO_LINKS = [
+  `https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4`,
+  `https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm`,
+];
 
 export const generateFilm = () => {
   const randomFilm = getRandomArrayItem(FILMS);
@@ -98,6 +102,7 @@ export const generateFilm = () => {
     id: nanoid(),
     name,
     posterImage,
+    videoLink: getRandomArrayItem(VIDEO_LINKS),
     genre: getRandomArrayItem(GENRES),
     releaseDate: getRandomDate(),
   };
