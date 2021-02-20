@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {Switch, Route, BrowserRouter} from 'react-router-dom';
 
 import MainPage from "../pages/main/main";
@@ -8,13 +9,14 @@ import FilmPage from "../pages/film/film";
 import AddReviewPage from "../pages/add-review/add-review";
 import PlayerPage from "../pages/player/player";
 import NotFoundPage from "../pages/not-found-page/not-found-page";
+import movieProp from "../types/movie.prop";
 
-const App = () => {
+const App = ({movies}) => {
   return (
     <BrowserRouter>
       <Switch>
         <Route exact path="/">
-          <MainPage />
+          <MainPage movies={movies} />
         </Route>
         <Route exact path="/login">
           <SignInPage />
@@ -37,6 +39,10 @@ const App = () => {
       </Switch>
     </BrowserRouter>
   );
+};
+
+App.propTypes = {
+  movies: PropTypes.arrayOf(movieProp),
 };
 
 export default App;

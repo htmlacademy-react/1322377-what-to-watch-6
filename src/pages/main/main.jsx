@@ -1,15 +1,12 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import MoviePreview from "../../components/movie-preview/movie-preview";
 import Footer from "../../components/footer/footer";
 import MoviesList from "../../components/movies-list/movies-list";
-import {generateFilms} from "../../mock/movie";
+import movieProp from "../../types/movie.prop";
 
-const FILMS_COUNT = 20;
-
-const MainPage = () => {
-  const movies = generateFilms(FILMS_COUNT);
-
+const MainPage = ({movies}) => {
   return (
     <>
       <MoviePreview />
@@ -57,6 +54,10 @@ const MainPage = () => {
       </div>
     </>
   );
+};
+
+MainPage.propTypes = {
+  movies: PropTypes.arrayOf(movieProp),
 };
 
 export default MainPage;
