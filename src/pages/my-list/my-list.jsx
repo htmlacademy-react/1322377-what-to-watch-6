@@ -3,17 +3,12 @@ import PropTypes from 'prop-types';
 
 import MoviesList from "../../components/movies-list/movies-list";
 import movieProp from "../../types/movie.prop";
+import Logo from "../../components/logo/logo";
 
 const MyListPage = ({movies}) => (
   <div className="user-page">
     <header className="page-header user-page__head">
-      <div className="logo">
-        <a href="main.html" className="logo__link">
-          <span className="logo__letter logo__letter--1">W</span>
-          <span className="logo__letter logo__letter--2">T</span>
-          <span className="logo__letter logo__letter--3">W</span>
-        </a>
-      </div>
+      <Logo />
       <h1 className="page-title user-page__title">My list</h1>
       <div className="user-block">
         <div className="user-block__avatar">
