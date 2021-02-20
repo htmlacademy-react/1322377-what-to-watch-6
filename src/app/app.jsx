@@ -11,6 +11,8 @@ import PlayerPage from "../pages/player/player";
 import NotFoundPage from "../pages/not-found-page/not-found-page";
 import movieProp from "../types/movie.prop";
 
+const SAME_MOVIES_COUNT = 4;
+
 const App = ({movies}) => {
   return (
     <BrowserRouter>
@@ -22,16 +24,16 @@ const App = ({movies}) => {
           <SignInPage />
         </Route>
         <Route exact path="/mylist">
-          <MyListPage />
+          <MyListPage movies={movies} />
         </Route>
         <Route exact path="/films/:id">
-          <FilmPage />
+          <FilmPage movie={movies[0]} sameMovies={movies.slice(0, SAME_MOVIES_COUNT)} />
         </Route>
         <Route exact path="/films/:id/review">
-          <AddReviewPage />
+          <AddReviewPage movie={movies[0]} />
         </Route>
         <Route exact path="/player/:id">
-          <PlayerPage />
+          <PlayerPage movie={movies[0]} />
         </Route>
         <Route>
           <NotFoundPage />
