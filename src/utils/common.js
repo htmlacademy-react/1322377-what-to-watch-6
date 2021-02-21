@@ -24,4 +24,4 @@ export const getRandomDate = (start = `1970-01-01`, end = moment()) => {
   return moment.unix(randomUnix).toISOString();
 };
 
-export const convertKebabToCamel = (str) => str.replace(/-(.)/g, g => g[1].toUpperCase());
+export const convertKebabToCamel = (str) => str.replace(/-(.)/g, (g) => g[1].toUpperCase());

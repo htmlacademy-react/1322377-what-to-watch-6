@@ -17,6 +17,7 @@ const MoviesList = ({movies}) => {
         <MovieCard
           key={nanoid()}
           film={movie}
+          isActive={movie.id === activeMovie}
           handleMovieCardMouseOver={handleMovieCardMouseOver}
           handleMovieCardMouseLeave={handleMovieCardMouseLeave}
         />
