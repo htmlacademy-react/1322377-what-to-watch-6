@@ -18,7 +18,10 @@ export const count = (number) => {
 };
 
 export const getRandomDate = (start = `1970-01-01`, end = moment()) => {
-  const unixStart = moment(start).unix() / 1000; // перевели мс в секунды
-  const unixEnd = moment(end).unix() / 1000;
-  return moment(unixStart + Math.random() * (unixEnd - unixStart)).toISOString();
+  const unixStart = moment(start).unix();
+  const unixEnd = moment(end).unix();
+  const randomUnix = (unixStart + Math.random() * (unixEnd - unixStart));
+  return moment.unix(randomUnix).toISOString();
 };
+
+export const convertKebabToCamel = (str) => str.replace(/-(.)/g, (g) => g[1].toUpperCase());
