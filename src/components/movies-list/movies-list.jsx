@@ -1,6 +1,5 @@
 import React, {useState} from 'react';
 import PropTypes from 'prop-types';
-import {nanoid} from "nanoid";
 
 import MovieCard from "../movie-card/movie-card";
 import movieProp from "../../types/movie.prop";
@@ -15,7 +14,7 @@ const MoviesList = ({movies}) => {
     <div className="catalog__movies-list">
       {movies.map((movie) => (
         <MovieCard
-          key={nanoid()}
+          key={movie.id}
           film={movie}
           isActive={movie.id === activeMovie}
           handleMovieCardMouseOver={handleMovieCardMouseOver}
