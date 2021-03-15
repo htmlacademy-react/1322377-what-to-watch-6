@@ -1,8 +1,9 @@
 import React from 'react';
 
-import movieProp from '../../types/movie.prop';
 import Logo from "../../components/logo/logo";
 import ReviewForm from "../../components/review-form/review-form";
+
+import propTypes from './add-review.props';
 
 const AddReviewPage = ({movie}) => {
   const {posterImage, name} = movie;
@@ -40,8 +41,6 @@ const AddReviewPage = ({movie}) => {
   );
 };
 
-AddReviewPage.propTypes = {
-  movie: movieProp,
-};
+AddReviewPage.propTypes = propTypes;
 
 export default AddReviewPage;

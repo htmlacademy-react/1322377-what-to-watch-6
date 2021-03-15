@@ -1,5 +1,6 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+
+import propTypes from './video-player.props';
 
 import './styles.css';
 
@@ -9,10 +10,6 @@ const VideoPlayer = ({shouldVideoPlay, posterImage, videoLink}) => {
     : <img src={posterImage} alt={name} width={280} height={175} />;
 };
 
-VideoPlayer.propTypes = {
-  shouldVideoPlay: PropTypes.bool.isRequired,
-  posterImage: PropTypes.string.isRequired,
-  videoLink: PropTypes.string.isRequired,
-};
+VideoPlayer.propTypes = propTypes;
 
 export default VideoPlayer;

@@ -1,5 +1,6 @@
 import React from "react";
-import PropTypes from 'prop-types';
+
+import propTypes from './reviews-col.props';
 
 const ReviewsCol = (props) => {
   return <div className="movie-card__reviews-col">
@@ -7,8 +8,6 @@ const ReviewsCol = (props) => {
   </div>;
 };
 
-ReviewsCol.propTypes = {
-  children: PropTypes.arrayOf(PropTypes.element),
-};
+ReviewsCol.propTypes = propTypes;
 
 export default ReviewsCol;

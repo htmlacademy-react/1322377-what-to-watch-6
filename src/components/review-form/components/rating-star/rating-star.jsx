@@ -1,5 +1,6 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+
+import propTypes from './rating-star.props';
 
 const RatingStar = ({value, isChecked}) => (
   <>
@@ -15,9 +16,6 @@ const RatingStar = ({value, isChecked}) => (
   </>
 );
 
-RatingStar.propTypes = {
-  value: PropTypes.number.isRequired,
-  isChecked: PropTypes.bool.isRequired,
-};
+RatingStar.propTypes = propTypes;
 
 export default RatingStar;

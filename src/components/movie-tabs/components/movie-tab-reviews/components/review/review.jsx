@@ -1,7 +1,7 @@
 import React from "react";
 import moment from "moment";
 
-import reviewProp from "../../../../../../types/review.prop";
+import propTypes from './review.props';
 
 const Review = (props) => {
   const {review} = props;
@@ -22,8 +22,6 @@ const Review = (props) => {
   );
 };
 
-Review.propTypes = {
-  review: reviewProp
-};
+Review.propTypes = propTypes;
 
 export default Review;

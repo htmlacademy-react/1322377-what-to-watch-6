@@ -1,11 +1,11 @@
 import React from "react";
-import PropTypes from "prop-types";
 import {connect} from "react-redux";
 import {nanoid} from "nanoid";
 import classnames from "classnames";
 
 import {Genre} from "../../const";
 import {changeGenre} from "../../store/actions";
+import propTypes from './genres-list.props';
 
 const GenresList = (props) => {
   const {activeGenre, onChangeGenre} = props;
@@ -36,10 +36,7 @@ const GenresList = (props) => {
   );
 };
 
-GenresList.propTypes = {
-  activeGenre: PropTypes.string.isRequired,
-  onChangeGenre: PropTypes.func.isRequired
-};
+GenresList.propTypes = propTypes;
 
 const mapDispatchToProps = (dispatch) => ({
   onChangeGenre(newGenre) {

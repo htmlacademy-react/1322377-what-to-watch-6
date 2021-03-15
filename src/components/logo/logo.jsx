@@ -1,5 +1,6 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+
+import propTypes from './logo.props';
 
 const getLogoStyles = (isLight) => {
   const style = [`logo__link`];
@@ -20,8 +21,6 @@ const Logo = ({isLight}) => (
   </div>
 );
 
-Logo.propTypes = {
-  isLight: PropTypes.bool,
-};
+Logo.propTypes = propTypes;
 
 export default Logo;

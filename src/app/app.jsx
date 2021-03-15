@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import {Switch, Route, BrowserRouter} from 'react-router-dom';
 
 import MainPage from "../pages/main/main";
@@ -9,7 +8,8 @@ import FilmPage from "../pages/film/film";
 import AddReviewPage from "../pages/add-review/add-review";
 import PlayerPage from "../pages/player/player";
 import NotFoundPage from "../pages/not-found-page/not-found-page";
-import movieProp from "../types/movie.prop";
+
+import propTypes from './app.props';
 
 const SAME_MOVIES_COUNT = 4;
 
@@ -43,8 +43,6 @@ const App = ({movies}) => {
   );
 };
 
-App.propTypes = {
-  movies: PropTypes.arrayOf(movieProp),
-};
+App.propTypes = propTypes;
 
 export default App;
