@@ -1,9 +1,8 @@
 import {ActionType} from "./actions";
 import {Genre} from "../const";
-import {generateFilms} from "../mock/movie";
 
 const initialState = {
-  movies: generateFilms(),
+  movies: [],
   genre: Genre.ALL_GENRES,
 };
 
