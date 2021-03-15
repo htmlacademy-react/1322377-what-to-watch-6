@@ -1,5 +1,18 @@
 export const MAX_STARRING_COUNT = 4;
 
+export const Genre = {
+  ALL_GENRES: `All genres`,
+  COMEDY: `Comedy`,
+  CRIME: `Crime`,
+  DOCUMENTARY: `Documentary`,
+  DRAMA: `Drama`,
+  HORROR: `Horror`,
+  KIDS_FAMILY: `Kids & Family`,
+  ROMANCE: `Romance`,
+  SCI_FI: `Sci-Fi`,
+  THRILLER: `Thriller`,
+};
+
 export const FilmMark = {
   BAD: {
     title: `Bad`,

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import movieProp from '../../types/movie.prop';
+import propTypes from './player.props';
 
 const PlayerPage = ({movie}) => {
   const {posterImage, videoLink} = movie;
@@ -37,8 +37,6 @@ const PlayerPage = ({movie}) => {
   );
 };
 
-PlayerPage.propTypes = {
-  movie: movieProp,
-};
+PlayerPage.propTypes = propTypes;
 
 export default PlayerPage;

@@ -1,18 +1,18 @@
 import React, {useState, useEffect} from 'react';
 import {useParams} from 'react-router-dom';
-import PropTypes from 'prop-types';
 import moment from "moment";
 
 import Footer from "../../components/footer/footer";
 import MoviesList from "../../components/movies-list/movies-list";
 import Logo from "../../components/logo/logo";
 import MovieTabs from "../../components/movie-tabs/movie-tabs";
-import movieProp from '../../types/movie.prop';
 
 import MovieTabOverview from "../../components/movie-tabs/components/movie-tab-overview/movie-tab-overview";
 import MovieTabDetails from "../../components/movie-tabs/components/movie-tab-details/movie-tab-details";
 import MovieTabReviews from "../../components/movie-tabs/components/movie-tab-reviews/movie-tab-reviews";
 import NotFoundPage from "../not-found-page/not-found-page";
+
+import propTypes from './film.props';
 
 export const MovieTab = {
   OVERVIEW: `Overview`,
@@ -29,17 +29,16 @@ function useScrollToTop(...dependencies) {
 const FilmPage = ({movies, sameMovies}) => {
   const params = useParams();
   const movie = movies.find((movieItem) => movieItem.id === params.id);
+  const {posterImage, name, genre, releaseDate} = movie;
+
+  const [movieTab, setMovieTab] = useState(MovieTab.OVERVIEW);
+  const handleMovieTabChange = (newTab) => setMovieTab(newTab);
+
+  useScrollToTop(params.id);
 
   if (!movie) {
     return <NotFoundPage />;
   }
-
-  const {posterImage, name, genre, releaseDate} = movie;
-
-  useScrollToTop(params.id);
-
-  const [movieTab, setMovieTab] = useState(MovieTab.OVERVIEW);
-  const handleMovieTabChange = (newTab) => setMovieTab(newTab);
 
   return (
     <>
@@ -106,9 +105,6 @@ const FilmPage = ({movies, sameMovies}) => {
   );
 };
 
-FilmPage.propTypes = {
-  movies: PropTypes.arrayOf(movieProp).isRequired,
-  sameMovies: PropTypes.arrayOf(movieProp).isRequired,
-};
+FilmPage.propTypes = propTypes;
 
 export default FilmPage;

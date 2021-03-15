@@ -1,9 +1,9 @@
 import React, {useEffect, useState} from 'react';
-import PropTypes from 'prop-types';
 import {Link} from "react-router-dom";
 
 import VideoPlayer from "../video-player/video-player";
-import movieProp from '../../types/movie.prop';
+
+import propTypes from './movie-card.props';
 
 const MovieCard = ({film, isActive, handleMovieCardMouseOver, handleMovieCardMouseLeave}) => {
   const {id, name, posterImage, videoLink} = film;
@@ -42,11 +42,6 @@ const MovieCard = ({film, isActive, handleMovieCardMouseOver, handleMovieCardMou
   );
 };
 
-MovieCard.propTypes = {
-  film: movieProp.isRequired,
-  isActive: PropTypes.bool.isRequired,
-  handleMovieCardMouseOver: PropTypes.func.isRequired,
-  handleMovieCardMouseLeave: PropTypes.func.isRequired,
-};
+MovieCard.propTypes = propTypes;
 
 export default MovieCard;

@@ -1,10 +1,10 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
 import MoviesList from "../../components/movies-list/movies-list";
-import movieProp from "../../types/movie.prop";
 import Logo from "../../components/logo/logo";
 import Footer from "../../components/footer/footer";
+
+import propTypes from './my-list.props';
 
 const MyListPage = ({movies}) => (
   <div className="user-page">
@@ -25,8 +25,6 @@ const MyListPage = ({movies}) => (
   </div>
 );
 
-MyListPage.propTypes = {
-  movies: PropTypes.arrayOf(movieProp),
-};
+MyListPage.propTypes = propTypes;
 
 export default MyListPage;

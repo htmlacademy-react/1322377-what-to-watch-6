@@ -1,5 +1,6 @@
 import React from "react";
-import PropTypes from "prop-types";
+
+import propTypes from './movie-tabs.props';
 
 import {MovieTab} from "../../pages/film/film";
 
@@ -31,10 +32,6 @@ const MovieTabs = ({activeTab, onChange, children}) => {
   );
 };
 
-MovieTabs.propTypes = {
-  activeTab: PropTypes.string.isRequired,
-  onChange: PropTypes.func.isRequired,
-  children: PropTypes.element,
-};
+MovieTabs.propTypes = propTypes;
 
 export default MovieTabs;

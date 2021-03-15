@@ -3,6 +3,7 @@ import {loremIpsum} from "lorem-ipsum";
 
 import {getRandomArrayItem, getRandomDate, count, getRandomInt} from "../utils/common";
 import {generateReviews} from "./review";
+import {Genre} from "../const";
 
 const FILMS = [
   {
@@ -82,17 +83,7 @@ const FILMS = [
     posterImage: `img/mindhunter.jpg`,
   },
 ];
-const GENRES = [
-  `Comedy`,
-  `Crime`,
-  `Documentary`,
-  `Drama`,
-  `Horror`,
-  `Kids & Family`,
-  `Romance`,
-  `Sci-Fi`,
-  `Thriller`,
-];
+
 const VIDEO_LINKS = [
   `https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4`,
   `https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm`,
@@ -120,12 +111,14 @@ const CELEBRITIES = [
 export const generateFilm = () => {
   const randomFilm = getRandomArrayItem(FILMS);
   const {name, posterImage} = randomFilm;
+
+  const genreValues = Object.values(Genre).filter((genre) => genre !== Genre.ALL_GENRES);
   return {
     id: nanoid(),
     name,
     posterImage,
     videoLink: getRandomArrayItem(VIDEO_LINKS),
-    genre: getRandomArrayItem(GENRES),
+    genre: getRandomArrayItem(genreValues),
     releaseDate: getRandomDate(),
     description: loremIpsum({count: getRandomInt(1, 3), units: `paragraphs`}),
     rating: getRandomInt(10, 100) / 10,

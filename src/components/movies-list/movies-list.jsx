@@ -1,8 +1,8 @@
 import React, {useState} from 'react';
-import PropTypes from 'prop-types';
 
 import MovieCard from "../movie-card/movie-card";
-import movieProp from "../../types/movie.prop";
+
+import propTypes from './movies-list.props';
 
 const MoviesList = ({movies}) => {
   const [activeMovie, setActiveMovie] = useState(null);
@@ -25,8 +25,6 @@ const MoviesList = ({movies}) => {
   );
 };
 
-MoviesList.propTypes = {
-  movies: PropTypes.arrayOf(movieProp),
-};
+MoviesList.propTypes = propTypes;
 
 export default MoviesList;
