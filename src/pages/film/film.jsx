@@ -90,7 +90,7 @@ const FilmPage = ({movies, sameMovies}) => {
             <MovieTabs activeTab={movieTab} onChange={handleMovieTabChange}>
               {movieTab === MovieTab.OVERVIEW && <MovieTabOverview movie={movie} />}
               {movieTab === MovieTab.DETAILS && <MovieTabDetails movie={movie} />}
-              {movieTab === MovieTab.REVIEWS && <MovieTabReviews movie={movie} />}
+              {movieTab === MovieTab.REVIEWS && <MovieTabReviews reviews={movie._reviews} />}
             </MovieTabs>
           </div>
         </div>
@@ -107,8 +107,8 @@ const FilmPage = ({movies, sameMovies}) => {
 };
 
 FilmPage.propTypes = {
-  movie: movieProp,
-  sameMovies: PropTypes.arrayOf(movieProp),
+  movies: PropTypes.arrayOf(movieProp).isRequired,
+  sameMovies: PropTypes.arrayOf(movieProp).isRequired,
 };
 
 export default FilmPage;

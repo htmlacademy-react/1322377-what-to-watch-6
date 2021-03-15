@@ -1,6 +1,7 @@
 import React from 'react';
 import {getFilmMarkString} from "../../../../utils/common";
 import {MAX_STARRING_COUNT} from "../../../../const";
+import movieProp from "../../../../types/movie.prop";
 
 const MovieTabOverview = (props) => {
   const {movie} = props;
@@ -31,6 +32,10 @@ const MovieTabOverview = (props) => {
       </div>
     </>
   );
+};
+
+MovieTabOverview.propTypes = {
+  movie: movieProp,
 };
 
 export default MovieTabOverview;

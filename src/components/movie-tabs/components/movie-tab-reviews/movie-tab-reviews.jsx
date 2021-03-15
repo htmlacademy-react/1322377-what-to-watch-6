@@ -1,7 +1,10 @@
 import React from 'react';
-import ReviewsCol from "./components/reviews-col/reviews-col";
+import PropTypes from 'prop-types';
 import {nanoid} from "nanoid";
+
+import ReviewsCol from "./components/reviews-col/reviews-col";
 import Review from "./components/review/review";
+import reviewProp from "../../../../types/review.prop";
 
 function splitReviews(reviews) {
   const middle = Math.ceil(reviews.length / 2);
@@ -10,9 +13,9 @@ function splitReviews(reviews) {
 }
 
 const MovieTabReviews = (props) => {
-  const {movie} = props;
+  const {reviews} = props;
 
-  const dividedReviews = splitReviews(movie._reviews);
+  const dividedReviews = splitReviews(reviews);
 
   return (
     <>
@@ -23,6 +26,10 @@ const MovieTabReviews = (props) => {
       </div>
     </>
   );
+};
+
+MovieTabReviews.propTypes = {
+  reviews: PropTypes.arrayOf(reviewProp),
 };
 
 export default MovieTabReviews;

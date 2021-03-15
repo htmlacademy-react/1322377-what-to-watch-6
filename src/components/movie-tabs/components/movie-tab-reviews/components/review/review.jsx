@@ -1,6 +1,8 @@
 import React from "react";
 import moment from "moment";
 
+import reviewProp from "../../../../../../types/review.prop";
+
 const Review = (props) => {
   const {review} = props;
   const {rating, comment, user, date} = review;
@@ -18,6 +20,10 @@ const Review = (props) => {
       <div className="review__rating">{rating}</div>
     </div>
   );
+};
+
+Review.propTypes = {
+  review: reviewProp
 };
 
 export default Review;

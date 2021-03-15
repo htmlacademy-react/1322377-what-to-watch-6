@@ -1,6 +1,8 @@
 import React from 'react';
 import moment from "moment";
+
 import {getDurationString} from "../../../../utils/common";
+import movieProp from '../../../../types/movie.prop';
 
 const MovieTabDetails = ({movie}) => {
   const {director, starring, genre, releaseDate, runTime} = movie;
@@ -37,6 +39,10 @@ const MovieTabDetails = ({movie}) => {
       </div>
     </>
   );
+};
+
+MovieTabDetails.propTypes = {
+  movie: movieProp,
 };
 
 export default MovieTabDetails;
