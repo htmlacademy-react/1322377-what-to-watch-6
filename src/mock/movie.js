@@ -2,6 +2,7 @@ import {nanoid} from "nanoid";
 import {loremIpsum} from "lorem-ipsum";
 
 import {getRandomArrayItem, getRandomDate, count, getRandomInt} from "../utils/common";
+import {generateReviews} from "./review";
 
 const FILMS = [
   {
@@ -135,7 +136,8 @@ export const generateFilm = () => {
     starring: count(getRandomInt(1, 10)).reduce((acc) => {
       acc.push(getRandomArrayItem(CELEBRITIES));
       return acc;
-    }, [])
+    }, []),
+    _reviews: generateReviews(5) // временное поле
   };
 };
 
