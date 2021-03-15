@@ -8,9 +8,9 @@ import Logo from "../../components/logo/logo";
 import MovieTabs from "../../components/movie-tabs/movie-tabs";
 import movieProp from '../../types/movie.prop';
 
-import MovieTabOverview from "../../components/movie-tab-overview/movie-tab-overview";
-import MovieTabDetails from "../../components/movie-tab-details/movie-tab-details";
-import MovieTabReviews from "../../components/movie-tab-reviews/movie-tab-reviews";
+import MovieTabOverview from "../../components/movie-tabs/components/movie-tab-overview/movie-tab-overview";
+import MovieTabDetails from "../../components/movie-tabs/components/movie-tab-details/movie-tab-details";
+import MovieTabReviews from "../../components/movie-tabs/components/movie-tab-reviews/movie-tab-reviews";
 
 export const MovieTab = {
   OVERVIEW: `Overview`,
@@ -70,12 +70,11 @@ const FilmPage = ({movie, sameMovies}) => {
             <div className="movie-card__poster movie-card__poster--big">
               <img src={posterImage} alt={name} width={218} height={327} />
             </div>
-            <div className="movie-card__desc">
-              <MovieTabs activeTab={movieTab} onChange={handleMovieTabChange} />
-              {movieTab === MovieTab.OVERVIEW && <MovieTabOverview />}
-              {movieTab === MovieTab.DETAILS && <MovieTabDetails />}
+            <MovieTabs activeTab={movieTab} onChange={handleMovieTabChange}>
+              {movieTab === MovieTab.OVERVIEW && <MovieTabOverview movie={movie} />}
+              {movieTab === MovieTab.DETAILS && <MovieTabDetails movie={movie} />}
               {movieTab === MovieTab.REVIEWS && <MovieTabReviews />}
-            </div>
+            </MovieTabs>
           </div>
         </div>
       </section>

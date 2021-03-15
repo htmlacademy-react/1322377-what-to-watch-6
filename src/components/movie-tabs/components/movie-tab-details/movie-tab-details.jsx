@@ -1,29 +1,20 @@
 import React from 'react';
 
-const MovieTabDetails = () => {
+const MovieTabDetails = ({movie}) => {
+  const {director, starring} = movie;
+  console.log(movie);
   return (
     <>
       <div className="movie-card__text movie-card__row">
         <div className="movie-card__text-col">
           <p className="movie-card__details-item">
             <strong className="movie-card__details-name">Director</strong>
-            <span className="movie-card__details-value">Wes Andreson</span>
+            <span className="movie-card__details-value">{director}</span>
           </p>
           <p className="movie-card__details-item">
             <strong className="movie-card__details-name">Starring</strong>
             <span className="movie-card__details-value">
-              Bill Murray, <br />
-              Edward Norton, <br />
-              Jude Law, <br />
-              Willem Dafoe, <br />
-              Saoirse Ronan, <br />
-              Tony Revoloru, <br />
-              Tilda Swinton, <br />
-              Tom Wilkinson, <br />
-              Owen Wilkinson, <br />
-              Adrien Brody, <br />
-              Ralph Fiennes, <br />
-              Jeff Goldblum
+              {starring.map((item, i) => <span key={`star-${i}`}>{item} {i === starring.length - 1 && <br />}</span>)}
             </span>
           </p>
         </div>
