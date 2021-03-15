@@ -90,7 +90,7 @@ const FilmPage = ({movies, sameMovies}) => {
             <MovieTabs activeTab={movieTab} onChange={handleMovieTabChange}>
               {movieTab === MovieTab.OVERVIEW && <MovieTabOverview movie={movie} />}
               {movieTab === MovieTab.DETAILS && <MovieTabDetails movie={movie} />}
-              {movieTab === MovieTab.REVIEWS && <MovieTabReviews />}
+              {movieTab === MovieTab.REVIEWS && <MovieTabReviews movie={movie} />}
             </MovieTabs>
           </div>
         </div>
