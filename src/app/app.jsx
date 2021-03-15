@@ -27,7 +27,7 @@ const App = ({movies}) => {
           <MyListPage movies={movies} />
         </Route>
         <Route exact path="/films/:id">
-          <FilmPage movie={movies[0]} sameMovies={movies.slice(0, SAME_MOVIES_COUNT)} />
+          <FilmPage movies={movies} sameMovies={movies.slice(0, SAME_MOVIES_COUNT)} />
         </Route>
         <Route exact path="/films/:id/review">
           <AddReviewPage movie={movies[0]} />

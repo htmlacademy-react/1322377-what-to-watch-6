@@ -1,4 +1,5 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
+import {useParams} from 'react-router-dom';
 import PropTypes from 'prop-types';
 import moment from "moment";
 
@@ -11,6 +12,7 @@ import movieProp from '../../types/movie.prop';
 import MovieTabOverview from "../../components/movie-tabs/components/movie-tab-overview/movie-tab-overview";
 import MovieTabDetails from "../../components/movie-tabs/components/movie-tab-details/movie-tab-details";
 import MovieTabReviews from "../../components/movie-tabs/components/movie-tab-reviews/movie-tab-reviews";
+import NotFoundPage from "../not-found-page/not-found-page";
 
 export const MovieTab = {
   OVERVIEW: `Overview`,
@@ -18,8 +20,23 @@ export const MovieTab = {
   REVIEWS: `Reviews`,
 };
 
-const FilmPage = ({movie, sameMovies}) => {
+function useScrollToTop(...dependencies) {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, dependencies);
+}
+
+const FilmPage = ({movies, sameMovies}) => {
+  const params = useParams();
+  const movie = movies.find((movieItem) => movieItem.id === params.id);
+
+  if (!movie) {
+    return <NotFoundPage />;
+  }
+
   const {posterImage, name, genre, releaseDate} = movie;
+
+  useScrollToTop(params.id);
 
   const [movieTab, setMovieTab] = useState(MovieTab.OVERVIEW);
   const handleMovieTabChange = (newTab) => setMovieTab(newTab);
