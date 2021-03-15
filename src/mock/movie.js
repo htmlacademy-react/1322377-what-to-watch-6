@@ -118,7 +118,7 @@ export const generateFilm = () => {
     name,
     posterImage,
     videoLink: getRandomArrayItem(VIDEO_LINKS),
-    genre: getRandomArrayItem(getRandomArrayItem(genreValues)),
+    genre: getRandomArrayItem(genreValues),
     releaseDate: getRandomDate(),
     description: loremIpsum({count: getRandomInt(1, 3), units: `paragraphs`}),
     rating: getRandomInt(10, 100) / 10,
