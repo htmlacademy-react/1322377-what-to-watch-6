@@ -30,3 +30,14 @@ export const convertKebabToCamel = (str) => str.replace(/-(.)/g, (g) => g[1].toU
 export const getFilmMarkString = (numberMark) => {
   return Object.values(FilmMark).find((mark) => numberMark >= mark.min && numberMark < mark.max).title;
 };
+
+export const getDurationString = (durationInMinutes) => {
+  let durationString = ``;
+  const hours = moment.duration(durationInMinutes, `m`).hours();
+  durationString += `${hours}h`;
+  const minutes = durationInMinutes - hours * 60;
+  if (minutes) {
+    durationString += ` ${minutes} m`;
+  }
+  return durationString;
+};

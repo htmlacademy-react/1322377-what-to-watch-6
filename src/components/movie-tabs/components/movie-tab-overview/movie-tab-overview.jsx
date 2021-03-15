@@ -1,13 +1,14 @@
 import React from 'react';
 import {getFilmMarkString} from "../../../../utils/common";
+import {MAX_STARRING_COUNT} from "../../../../const";
 
 const MovieTabOverview = (props) => {
   const {movie} = props;
-  const {description, director, starring, rating} = movie;
+  const {description, director, starring, rating, scoresCount} = movie;
 
   function getStarringString(starringArr) {
-    if (starringArr.length > 4) {
-      return starringArr.slice(0, 4).join(`, `) + ` and other`;
+    if (starringArr.length > MAX_STARRING_COUNT) {
+      return starringArr.slice(0, MAX_STARRING_COUNT).join(`, `) + ` and other`;
     }
 
     return starringArr.join(`, `);
@@ -19,7 +20,7 @@ const MovieTabOverview = (props) => {
         <div className="movie-rating__score">{rating}</div>
         <p className="movie-rating__meta">
           <span className="movie-rating__level">{getFilmMarkString(rating)}</span>
-          <span className="movie-rating__count">240 ratings</span>
+          <span className="movie-rating__count">{scoresCount} ratings</span>
         </p>
       </div>
       <div className="movie-card__text">

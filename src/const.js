@@ -1,3 +1,5 @@
+export const MAX_STARRING_COUNT = 4;
+
 export const FilmMark = {
   BAD: {
     title: `Bad`,
