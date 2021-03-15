@@ -8,7 +8,7 @@ const ReviewsCol = (props) => {
 };
 
 ReviewsCol.propTypes = {
-  children: PropTypes.element,
+  children: PropTypes.arrayOf(PropTypes.element),
 };
 
 export default ReviewsCol;

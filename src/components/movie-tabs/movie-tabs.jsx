@@ -34,7 +34,7 @@ const MovieTabs = ({activeTab, onChange, children}) => {
 MovieTabs.propTypes = {
   activeTab: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,
-  children: PropTypes.element,
+  children: PropTypes.arrayOf(PropTypes.oneOfType([PropTypes.bool, PropTypes.element])),
 };
 
 export default MovieTabs;
