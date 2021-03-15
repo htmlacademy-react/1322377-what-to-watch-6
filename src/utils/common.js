@@ -1,4 +1,5 @@
 import moment from 'moment';
+import {FilmMark} from "../const";
 
 export const getRandomInt = (min, max) => {
   min = Math.ceil(min);
@@ -25,3 +26,7 @@ export const getRandomDate = (start = `1970-01-01`, end = moment()) => {
 };
 
 export const convertKebabToCamel = (str) => str.replace(/-(.)/g, (g) => g[1].toUpperCase());
+
+export const getFilmMarkString = (numberMark) => {
+  return Object.values(FilmMark).find((mark) => numberMark >= mark.min && numberMark < mark.max).title;
+};
