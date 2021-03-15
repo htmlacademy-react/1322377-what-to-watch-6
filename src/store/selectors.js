@@ -1,2 +1,3 @@
 export const getMovies = (state) => state.movies;
-export const getGenre = (state) => state.genre;
+export const getFilteredMovies = (state) => state.filteredMovies;
+export const getActiveGenre = (state) => state.activeGenre;
