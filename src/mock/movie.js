@@ -1,5 +1,8 @@
 import {nanoid} from "nanoid";
-import {getRandomArrayItem, getRandomDate, count} from "../utils/common";
+import {loremIpsum} from "lorem-ipsum";
+
+import {getRandomArrayItem, getRandomDate, count, getRandomInt} from "../utils/common";
+import {generateReviews} from "./review";
 
 const FILMS = [
   {
@@ -94,6 +97,25 @@ const VIDEO_LINKS = [
   `https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4`,
   `https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm`,
 ];
+const CELEBRITIES = [
+  `Kylie Jenner`,
+  `Kanye West`,
+  `Lebron James`,
+  `Dwayne Johnson`,
+  `Rush Limbaugh`,
+  `Ellen Degeneres`,
+  `Elton John`,
+  `Ariana Grande`,
+  `Ryan Reynolds`,
+  `Taylor Swift`,
+  `Mark Wahlberg`,
+  `Ben Affleck`,
+  `Vin Diesel`,
+  `Drake`,
+  `Jackie Chan`,
+  `Travis Scott`,
+  `Sebastian Vettel`
+];
 
 export const generateFilm = () => {
   const randomFilm = getRandomArrayItem(FILMS);
@@ -105,6 +127,17 @@ export const generateFilm = () => {
     videoLink: getRandomArrayItem(VIDEO_LINKS),
     genre: getRandomArrayItem(GENRES),
     releaseDate: getRandomDate(),
+    description: loremIpsum({count: getRandomInt(1, 3), units: `paragraphs`}),
+    rating: getRandomInt(10, 100) / 10,
+    scoresCount: getRandomInt(10, 100) * 10,
+    runTime: getRandomInt(9, 27) * 10, // минут
+    isFavorite: !!getRandomInt(0, 1),
+    director: getRandomArrayItem(CELEBRITIES),
+    starring: count(getRandomInt(1, 10)).reduce((acc) => {
+      acc.push(getRandomArrayItem(CELEBRITIES));
+      return acc;
+    }, []),
+    _reviews: generateReviews(5) // временное поле
   };
 };
 

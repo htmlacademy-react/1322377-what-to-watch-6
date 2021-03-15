@@ -22,6 +22,8 @@ const MovieCard = ({film, isActive, handleMovieCardMouseOver, handleMovieCardMou
     } else if (!isActive && shouldVideoPlay) {
       onVideoStop();
     }
+
+    return () => clearTimeout(timerId);
   }, [isActive, shouldVideoPlay]);
 
   return (
@@ -34,7 +36,7 @@ const MovieCard = ({film, isActive, handleMovieCardMouseOver, handleMovieCardMou
         <VideoPlayer shouldVideoPlay={shouldVideoPlay} videoLink={videoLink} posterImage={posterImage} />
       </div>
       <h3 className="small-movie-card__title">
-        <Link className="small-movie-card__link" to={`films/${id}`}>{name}</Link>
+        <Link className="small-movie-card__link" to={`/films/${id}`}>{name}</Link>
       </h3>
     </article>
   );
